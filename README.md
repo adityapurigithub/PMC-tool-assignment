@@ -1,4 +1,4 @@
-# --------------------------------------------------Project Management & Collaboration Tool----------------------------------------------------------------------#
+# ------Project Management & Collaboration Tool-----------#
 A modern, full-stack Project Management application featuring a Kanban-style board, real-time filtering, and Role-Based Access Control (RBAC).
 
 ## 🚀 Getting Started
