@@ -73,7 +73,7 @@ AssignmentMERN2/
 - **MERN Stack:** For rapid development and high scalability.
 - **State Management:** React **Context API** was chosen over Redux for this scope to maintain code readability and reduce boilerplate overhead.
 - **Security:** Implemented **JWT (Access + Refresh tokens)** stored in state and handled via Axios interceptors for a seamless, secure user session.
-- **UI Architecture:** Use of **Atomic/Reusable components** (Button, Modal) to ensure consistency and minimize CSS duplication.
+- **UI Architecture:** Use of **Reusable components** (Button, Modal) to ensure consistency and minimize CSS duplication.
 
 ### Caching Strategy
 - **Client Tier:** Vite-optimized asset bundling and basic browser caching.
