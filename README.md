@@ -17,7 +17,7 @@ npm install
 # JWT_SECRET=your_secret
 # JWT_REFRESH_SECRET=your_refresh_secret
 npm run swagger  # Regenerates API docs
-npm start
+npm run server
 ```
 
 ### 3. Frontend Setup
