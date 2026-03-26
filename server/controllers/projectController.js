@@ -3,17 +3,17 @@ import User from "../models/User.js";
 
 export const getProjects = async (req, res, next) => {
   try {
-    const { search, sortByDate = 'desc' } = req.query;
+    const { search, sortByDate = "desc" } = req.query;
     const query = { "members.user": req.user._id };
 
     if (search) {
       query.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { description: { $regex: search, $options: 'i' } }
+        { name: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } },
       ];
     }
 
-    const sortOpt = sortByDate === 'asc' ? { createdAt: 1 } : { createdAt: -1 };
+    const sortOpt = sortByDate === "asc" ? { createdAt: 1 } : { createdAt: -1 };
 
     const projects = await Project.find(query)
       .populate("owner", "name email")
@@ -42,12 +42,10 @@ export const getProject = async (req, res, next) => {
       member.user._id.equals(req.user._id),
     );
     if (!isMember) {
-      return res
-        .status(403)
-        .json({
-          success: false,
-          message: "Not authorized to access this project",
-        });
+      return res.status(403).json({
+        success: false,
+        message: "Not authorized to access this project",
+      });
     }
 
     res.json({ success: true, data: project });
@@ -129,8 +127,6 @@ export const addMember = async (req, res, next) => {
   try {
     const { email, role } = req.body;
     const project = await Project.findById(req.params.id);
-
-    console.log("Project found:", project);
 
     if (!project) {
       return res

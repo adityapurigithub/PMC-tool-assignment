@@ -8,7 +8,9 @@ import projectRoutes from "./routes/projectRoutes.js";
 import boardRoutes from "./routes/boardRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
 import swaggerUi from "swagger-ui-express";
-import { swaggerSpec } from "./config/swagger.js";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const swaggerDoc = require("./swagger_output.json");
 
 dotenv.config();
 
@@ -26,8 +28,8 @@ app.use("/api/projects/:projectId/boards", boardRoutes);
 app.use("/api/boards/:boardId/tasks", taskRoutes);
 app.use("/api/tasks", taskRoutes);
 
-// Swagger UI setup
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// Swagger UI setup (Auto-generated)
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.get("/", (req, res) => res.send("API Running"));
 
