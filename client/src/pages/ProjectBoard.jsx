@@ -128,8 +128,6 @@ const ProjectBoard = () => {
     return () => clearTimeout(delay);
   }, [searchText]);
 
-  console.log(currentProject);
-
   // Check user role
   const currentUserMember = currentProject?.members?.find(
     (m) => m.user?._id === user?._id,

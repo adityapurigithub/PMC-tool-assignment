@@ -8,10 +8,6 @@ const TaskBoard = ({ boardId, tasks }) => {
   const { updateTaskStatus } = useTask();
   const [selectedTask, setSelectedTask] = useState(null);
 
-  console.log(tasks);
-
-  console.log(selectedTask);
-
   const handleDragEnd = (result) => {
     const { destination, source, draggableId } = result;
 
@@ -202,10 +198,12 @@ const TaskBoard = ({ boardId, tasks }) => {
                 {selectedTask?.assignedUser ? (
                   <div className="flex items-center gap-2.5">
                     <div className="w-7 h-7 rounded-full bg-linear-to-br from-accent to-indigo-600 text-white flex items-center justify-center text-xs font-black shadow-sm">
-                      {selectedTask?.assignedUser.name.charAt(0).toUpperCase()}
+                      {selectedTask?.assignedUser?.name
+                        ?.charAt(0)
+                        .toUpperCase()}
                     </div>
                     <span className="text-sm font-bold text-slate-700">
-                      {selectedTask?.assignedUser.name}
+                      {selectedTask?.assignedUser?.name}
                     </span>
                   </div>
                 ) : (

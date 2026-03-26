@@ -111,8 +111,6 @@ export const TaskProvider = ({ children }) => {
     setFilters(newFilters);
   };
 
-  console.log(filters);
-
   return (
     <TaskContext.Provider
       value={{
